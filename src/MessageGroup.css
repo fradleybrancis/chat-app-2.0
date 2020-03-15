@@ -9,8 +9,13 @@
 }
 
 .time {
-  color: rgba(0, 0, 0, 58%);
+  color: rgba(0, 0, 0, 0.58);
   font-size: 12px;
+}
+
+.is-sender .message-text {
+  background-color: #FFFFFF;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 .message-text {
@@ -37,11 +42,6 @@
 .messages {
   display: flex;
   flex-direction: column;
-}
-
-.is-sender .message-text {
-  background-color: #FFFFFF;
-  color: rgba(0, 0, 0, 87%);
 }
 
 .is-sender .messages {

@@ -58,6 +58,7 @@ class Chatroom extends React.Component {
     if (text === '') return;
     this.socket.emit('append message', { username, text, time });
     this.setState({ text: '' });
+    this.myInp.focus();
   };
 
   appendMessage(msg) {
@@ -83,6 +84,7 @@ class Chatroom extends React.Component {
           {
             messageGroups.map((messageGroup, index) => {
               let isSender = messageGroup.username === username;
+              console.log(isSender);
               return (
                 <MessageGroup isSender={isSender} messages={messageGroup.messages}/>
               );
@@ -92,7 +94,9 @@ class Chatroom extends React.Component {
         </div>
       </div>
       <form className="draft" onSubmit={this.sendMessage}>
-          <input autoFocus autoComplete="off" type="text" value={text} name="text" onChange={this.updateText} style={{ width: '100%'}}/>
+          <input autoFocus autoComplete="off" type="text" value={text} name="text" onChange={this.updateText} style={{ width: '100%'}}
+          ref={(ip) => this.myInp = ip}
+          />
           <button className="send"><img src={send} alt=""/></button>
       </form>
     </div>
